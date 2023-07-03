@@ -90,7 +90,10 @@ createApp({
             this.slides.forEach(element => {
                 element.active = false
             });
+
             this.slides[index].active = true;
+
+            this.counter=index
         }
 
 
