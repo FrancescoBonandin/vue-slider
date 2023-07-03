@@ -30,6 +30,8 @@ const{createApp} = Vue;
 createApp({
     data(){
         return{
+
+            clock: null,
             counter: 0,
             slides: [
                 {   
@@ -68,6 +70,7 @@ createApp({
 
     methods: {
 
+
         next(){
             this.slides[this.counter].active = false;
             this.counter+=1;
@@ -94,12 +97,25 @@ createApp({
             this.slides[index].active = true;
 
             this.counter=index
-        }
+        },
+        autoplay(){
+
+            this.clock = setInterval(() => {
+                this.next()
+            }
+            ,3000);
+     
+                
+            },
+                
 
 
 
-
+    },
+    mounted(){
+       this.autoplay()
     }
 
     
 }).mount("#app")
+
