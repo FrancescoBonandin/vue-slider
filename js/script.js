@@ -85,7 +85,14 @@ createApp({
                 this.counter = this.slides.length-1
             }
             this.slides[this.counter].active = true;
+        },
+        showThis(index){
+            this.slides.forEach(element => {
+                element.active = false
+            });
+            this.slides[index].active = true;
         }
+
 
 
 
