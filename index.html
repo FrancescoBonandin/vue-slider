@@ -15,7 +15,7 @@
     <div id="app">
 
         <div class="container" >
-            <div  class="slider-wrapper" :tabindex="counter">
+            <div @mouseenter="stopInterval(clock)" @mouseleave="startAutoplay(clock)" class="slider-wrapper" tabindex="0">
 
                 <div  v-for = " (slide, index) in slides " :class = "slide.active ? 'active' :'' " class="item ">
 

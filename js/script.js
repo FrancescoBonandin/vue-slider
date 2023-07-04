@@ -69,11 +69,10 @@ createApp({
     },
 
     methods: {
-
-
+     
         next(){
-            this.slides[this.counter].active = false;
-            this.counter+=1;
+            this.slides[this.counter++].active = false;
+           
             if(this.counter > this.slides.length-1){
                 this.counter = 0
             }
@@ -82,8 +81,8 @@ createApp({
 
         },
         prev(){
-            this.slides[this.counter].active = false;
-            this.counter-=1;
+            this.slides[this.counter--].active = false;
+             
             if(this.counter < 0){
                 this.counter = this.slides.length-1
             }
@@ -98,22 +97,24 @@ createApp({
 
             this.counter=index
         },
-        autoplay(){
-
+        startAutoplay(clock){
+           
             this.clock = setInterval(() => {
-                this.next()
+               this.next();
+               console.log(flag,clock);
             }
-            ,3000);
-     
-                
-            },
-                
+           ,3000);
+    
+        },
+        stopInterval(clock){
+            clearInterval(this.clock);
+            this.clock=null;
 
-
-
+        }
+       
     },
     mounted(){
-       this.autoplay()
+       this.autoplay(this.clock)
     }
 
     
